@@ -143,7 +143,7 @@ select { appearance: none; -webkit-appearance: none; background-image: url("data
 .needs-item.resolved .flag-text { text-decoration: line-through; }
 
 .swipe-row { position: relative; border-radius: 10px; touch-action: pan-y; }
-.reveal-row { position: absolute; left: 0; top: 0; bottom: 0; width: 180px; display: flex; }
+.reveal-row { position: absolute; left: 0; top: 0; bottom: 0; width: 196px; display: flex; gap: 8px; }
 .reveal-btn { width: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 9.5px; font-weight: 600; }
 .sched-card { position: relative; background: var(--surface); border-bottom: 1px solid var(--border-soft); padding: 13px 14px; cursor: pointer; user-select: none; }
 .sched-time { font-family: var(--font-sans); font-size: 12.5px; font-weight: 600; letter-spacing: -0.02em; }
