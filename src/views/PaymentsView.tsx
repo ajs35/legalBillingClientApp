@@ -4,7 +4,7 @@ export function PaymentsView() {
   return (
     <section className="view active">
       <div className="statusbar-spacer" />
-      <div className="col" style={{ padding: '8px 24px 12px', flexShrink: 0, gap: 2 }}>
+      <div className="col" style={{ padding: '8px 24px 20px', flexShrink: 0, gap: 16 }}>
         <span style={{ fontSize: 26, fontWeight: 700 }}>Payments</span>
         <span style={{ fontSize: 12, color: 'var(--ink-faint)' }}>{paymentsData.length} outstanding</span>
       </div>

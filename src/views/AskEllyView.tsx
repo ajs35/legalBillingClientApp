@@ -86,7 +86,7 @@ export function AskEllyView() {
       <div
         className="row"
         style={{
-          position: 'absolute', left: 16, right: 16, bottom: 94, background: 'var(--nav-bg)',
+          position: 'absolute', left: 16, right: 16, bottom: 78, background: 'var(--nav-bg)',
           backdropFilter: 'blur(20px) saturate(180%)', WebkitBackdropFilter: 'blur(20px) saturate(180%)',
           border: '1px solid var(--border-soft)', borderRadius: 14, padding: '10px 14px', gap: 9,
           alignItems: 'center', zIndex: 3, boxShadow: 'var(--shadow-xs)',

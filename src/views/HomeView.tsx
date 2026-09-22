@@ -82,7 +82,7 @@ export function HomeView() {
             <span style={{ fontSize: 15, fontWeight: 700 }}>Up next</span>
             <span style={{ fontFamily: 'var(--font-sans)', fontSize: 12, color: 'var(--ink-faint)' }}>{upNext?.time}</span>
           </div>
-          <div className="col" style={{ background: 'var(--surface)', borderRadius: 12, padding: 18, gap: 14, boxShadow: 'var(--shadow-md)' }}>
+          <div className="col" style={{ background: 'var(--surface)', borderRadius: 10, padding: 18, gap: 14, boxShadow: 'var(--shadow-md)' }}>
             {!upNext ? (
               <div style={{ fontSize: 13, color: 'var(--ink-faint)' }}>Nothing scheduled.</div>
             ) : (
@@ -94,21 +94,23 @@ export function HomeView() {
                   </div>
                   <div style={{ width: 38, height: 38, borderRadius: '50%', background: 'var(--accent-soft)', color: 'var(--accent-ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, flexShrink: 0 }}>{initials(upNext.client)}</div>
                 </div>
-                <div className="row" style={{ gap: 0, borderTop: '1px solid var(--border-soft)', paddingTop: 12 }}>
-                  <div className="col" style={{ flex: 1, gap: 2 }}>
-                    <span style={{ fontSize: 10.5, color: 'var(--ink-faint)', textTransform: 'uppercase', letterSpacing: '.03em' }}>Balance</span>
-                    <span style={{ fontSize: 18, fontWeight: 300, color: 'var(--danger-ink)' }}>{upNext.balance}</span>
-                  </div>
-                  <div className="col" style={{ flex: 1, gap: 2 }}>
-                    <span style={{ fontSize: 10.5, color: 'var(--ink-faint)', textTransform: 'uppercase', letterSpacing: '.03em' }}>Last invoice</span>
-                    <span style={{ fontSize: 18, fontWeight: 300 }}>{upNext.invoiceAge}</span>
-                  </div>
-                  <div className="col" style={{ flex: 1, gap: 2 }}>
-                    <span style={{ fontSize: 10.5, color: 'var(--ink-faint)', textTransform: 'uppercase', letterSpacing: '.03em' }}>Standing</span>
+                <div className="col" style={{ gap: 14, borderTop: '1px solid var(--border-soft)', paddingTop: 12 }}>
+                  <div className="row" style={{ gap: 3 }}>
+                    <span style={{ fontSize: 11, color: 'var(--ink-faint)' }}>Status</span>
                     <span className="row" style={{ alignItems: 'center', gap: 4 }}>
                       <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--danger)' }} />
-                      <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--danger-ink)' }}>Past-due</span>
+                      <span style={{ fontSize: 11.5, fontWeight: 700, color: 'var(--danger-ink)' }}>Past-due</span>
                     </span>
+                  </div>
+                  <div className="row" style={{ gap: 0 }}>
+                    <div className="col" style={{ flex: 1, gap: 3 }}>
+                      <span style={{ fontSize: 11, color: 'var(--ink-faint)' }}>BALANCE</span>
+                      <span style={{ fontSize: 24, fontWeight: 300, color: 'var(--danger-ink)' }}>{upNext.balance}</span>
+                    </div>
+                    <div className="col" style={{ flex: 1, gap: 3 }}>
+                      <span style={{ fontSize: 11, color: 'var(--ink-faint)' }}>LAST INVOICE</span>
+                      <span style={{ fontSize: 24, fontWeight: 300 }}>{upNext.invoiceAge}</span>
+                    </div>
                   </div>
                 </div>
                 <div className="row" style={{ gap: 8 }}>

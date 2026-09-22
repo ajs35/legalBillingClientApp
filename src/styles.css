@@ -17,7 +17,7 @@
   --shadow-md: 0 1px 3px rgba(0, 0, 0, .05), rgba(0, 0, 0, .05) 0 20px 25px -5px, rgba(0, 0, 0, .04) 0 10px 10px -5px;
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  --nav-clearance: 112px;
+  --nav-clearance: 96px;
   --header-fade-strong: rgba(231, 245, 255, .96);
   --header-fade-weak: rgba(231, 245, 255, .10);
 }
@@ -146,7 +146,7 @@ select { appearance: none; -webkit-appearance: none; background-image: url("data
 .reveal-row { position: absolute; left: 0; top: 0; bottom: 0; width: 180px; display: flex; }
 .reveal-btn { width: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 9.5px; font-weight: 600; }
 .sched-card { position: relative; background: var(--surface); border-bottom: 1px solid var(--border-soft); padding: 13px 14px; cursor: pointer; user-select: none; }
-.sched-time { font-family: var(--font-sans); font-size: 12.5px; font-weight: 700; letter-spacing: -0.02em; }
+.sched-time { font-family: var(--font-sans); font-size: 12.5px; font-weight: 600; letter-spacing: -0.02em; }
 
 .drawer-scrim { position: fixed; inset: 0; z-index: 20; background: rgba(0, 0, 0, .4); opacity: 0; visibility: hidden; transition: opacity .22s ease, visibility 0s linear .22s; }
 .drawer-scrim.open { opacity: 1; visibility: visible; transition: opacity .22s ease; }

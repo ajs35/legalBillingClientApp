@@ -79,9 +79,9 @@ export function QueueView() {
                 <div style={{ width: 26, height: 26, borderRadius: '50%', background: 'transparent', color: badgeInk, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
                   {resolved ? <IconCheck /> : <IconTriangle />}
                 </div>
-                <div className="col" style={{ flex: 1, gap: 3, minWidth: 0 }}>
-                  <div className="flag-text" style={{ fontSize: 13.5, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{entry.matter}</div>
-                  <div className="row" style={{ gap: 6, alignItems: 'center' }}>
+                <div className="col" style={{ flex: 1, gap: 6, minWidth: 0 }}>
+                  <div className="flag-text" style={{ fontSize: 15, fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{entry.matter}</div>
+                  <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
                     <span className="pill" style={{ background: badgeSoft, color: badgeInk }}>{entry.flag}</span>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink-faint)' }}>{entry.hours}h</span>
                   </div>
