@@ -30,7 +30,7 @@ export function FloatingNav() {
           <div style={{ position: 'absolute', top: -3, right: 26, width: 7, height: 7, borderRadius: '50%', background: 'var(--warn)' }} />
         </button>
         <button className={'navitem' + (isActive('profile') ? ' active' : '')} onClick={() => gotoView('profile')}>
-          <div style={{ width: 22, height: 22, borderRadius: '50%', background: 'var(--accent-soft)', color: 'var(--accent-ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 700 }}>
+          <div style={{ width: 24, height: 24, borderRadius: '50%', background: 'var(--accent-soft)', color: 'var(--accent-ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 500 }}>
             {initialsFor(profile.name) || 'MO'}
           </div>
           <span>Profile</span>
