@@ -64,7 +64,7 @@ input, textarea { font-family: var(--font-sans); }
 .seg { background: var(--track); border-radius: 8px; padding: 3px; gap: 3px; display: flex; }
 .seg button { flex: 1; border-radius: 6px; padding: 8px; font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--ink-faint); transition: background .16s ease, color .16s ease, box-shadow .16s ease; }
 .seg button.active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-xs); }
-input[type="date"], input[type="time"], input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea, select { border: 1px solid var(--border); border-radius: 8px; padding: 11px 12px; font-size: 14px; color: var(--ink); background: var(--bg); width: 100%; }
+input[type="date"], input[type="time"], input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea, select { border: 1px solid var(--border); border-radius: 8px; padding: 11px 12px; font-size: 16px; color: var(--ink); background: var(--bg); width: 100%; }
 textarea { resize: none; }
 select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='none' stroke='%23868e96' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 34px; }
 .field { gap: 6px; }
