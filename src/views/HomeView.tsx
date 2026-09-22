@@ -55,7 +55,7 @@ export function HomeView() {
     <section className="view active" style={{ position: 'relative' }}>
       <div className="floating-header" ref={headerRef}>
         <div className="statusbar-spacer" />
-        <div className="col" style={{ padding: '8px 24px 8px', gap: 16 }}>
+        <div className="col" style={{ padding: '8px 24px 24px', gap: 16 }}>
           <div className="row" style={{ justifyContent: 'space-between', alignItems: 'baseline' }}>
             <span style={{ fontSize: 13.5, color: 'var(--ink-faint)' }}>{homeDate}</span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--ink-faint)' }}>{homeUpdated}</span>

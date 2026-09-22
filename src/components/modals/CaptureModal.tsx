@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { IconClose, IconMic, IconSparkleAccent, IconTypeFaint } from '../Icons';
 
@@ -7,7 +7,19 @@ export function CaptureModal() {
   const open = openModals.capture;
   const [mode, setMode] = useState<'voice' | 'type'>('voice');
   const [duration, setDuration] = useState(1.2);
+  const [durationText, setDurationText] = useState('1.2');
   const [approved, setApproved] = useState(false);
+
+  useEffect(() => setDurationText(duration.toFixed(1)), [duration]);
+
+  function commitDurationText() {
+    const parsed = parseFloat(durationText);
+    if (!Number.isFinite(parsed) || parsed <= 0) {
+      setDurationText(duration.toFixed(1));
+      return;
+    }
+    setDuration(Math.max(0.1, Math.round(parsed * 10) / 10));
+  }
 
   function reset() {
     setMode('voice');
@@ -32,16 +44,16 @@ export function CaptureModal() {
       <div className="modal-scrim" onClick={() => closeModal('capture')} />
       <div className="sheet">
         <div className="drag-handle" />
-        <div className="row" style={{ alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px 12px 20px', flexShrink: 0 }}>
+        <div className="row" style={{ alignItems: 'center', justifyContent: 'space-between', padding: '12px 24px 4px', flexShrink: 0 }}>
           <span style={{ fontSize: 20, fontWeight: 700 }}>Capture time</span>
           <button className="close-btn" onClick={() => closeModal('capture')}><IconClose width={17} height={17} /></button>
         </div>
-        <div className="seg" style={{ margin: '0 20px 4px', flexShrink: 0 }}>
-          <button className={mode === 'voice' ? 'active' : ''} onClick={() => setMode('voice')}><IconMic width={14} height={14} stroke="currentColor" />Voice</button>
-          <button className={mode === 'type' ? 'active' : ''} onClick={() => setMode('type')}><IconTypeFaint width={14} height={14} stroke="currentColor" style={{}} />Type</button>
-        </div>
 
-        <div className="scroll col" style={{ padding: '10px 20px 148px', gap: 14 }}>
+        <div className="scroll col" style={{ padding: '4px 24px 148px', gap: 18 }}>
+          <div className="seg" style={{ flexShrink: 0 }}>
+            <button className={mode === 'voice' ? 'active' : ''} onClick={() => setMode('voice')}><IconMic width={14} height={14} stroke="currentColor" />Voice</button>
+            <button className={mode === 'type' ? 'active' : ''} onClick={() => setMode('type')}><IconTypeFaint width={14} height={14} stroke="currentColor" style={{}} />Type</button>
+          </div>
           {mode === 'voice' && (
             <div className="col" style={{ alignItems: 'center', gap: 10, padding: '6px 0 4px' }}>
               <div style={{ width: 64, height: 64, borderRadius: '50%', background: '#1D1D1D', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -83,12 +95,24 @@ export function CaptureModal() {
                 <div style={{ fontSize: 11, color: 'var(--ink-faint)' }}>Narrative</div>
                 <div style={{ fontSize: 13.5, lineHeight: 1.55 }}>Telephone conference with in-house counsel regarding proposed amendments to master supply agreement; reviewed and analyzed redline of Section&nbsp;4 (Delivery Terms).</div>
               </div>
-              <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center', paddingTop: 2 }}>
-                <div style={{ fontSize: 11, color: 'var(--ink-faint)' }}>Duration</div>
-                <div className="row" style={{ alignItems: 'center', gap: 12 }}>
-                  <button style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--surface)', border: '1px solid var(--border)', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setDuration((d) => Math.max(0.1, Math.round((d - 0.1) * 10) / 10))}>−</button>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 16, fontWeight: 600, minWidth: 44, textAlign: 'center' }}>{duration.toFixed(1)}</span>
-                  <button style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--surface)', border: '1px solid var(--border)', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setDuration((d) => Math.round((d + 0.1) * 10) / 10)}>+</button>
+              <div className="col" style={{ gap: 8, alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ fontSize: 11, color: 'var(--ink-faint)', textAlign: 'center' }}>Duration</div>
+                <div className="row" style={{ alignItems: 'center', gap: 12, padding: 8, borderRadius: 8 }}>
+                  <button style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--surface)', border: '1px solid var(--border-soft)', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }} onClick={() => setDuration((d) => Math.max(0.1, Math.round((d - 0.1) * 10) / 10))}>−</button>
+                  <input
+                    type="text"
+                    inputMode="decimal"
+                    pattern="[0-9]*[.]?[0-9]*"
+                    value={durationText}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      if (/^[0-9]*\.?[0-9]*$/.test(v)) setDurationText(v);
+                    }}
+                    onBlur={commitDurationText}
+                    onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+                    style={{ fontFamily: 'var(--font-mono)', fontSize: 16, fontWeight: 600, width: 44, textAlign: 'center', border: 'none', background: 'transparent', padding: 0 }}
+                  />
+                  <button style={{ width: 34, height: 34, borderRadius: '50%', background: 'var(--surface)', border: '1px solid var(--border-soft)', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }} onClick={() => setDuration((d) => Math.round((d + 0.1) * 10) / 10)}>+</button>
                 </div>
               </div>
             </div>
@@ -102,7 +126,7 @@ export function CaptureModal() {
           )}
         </div>
 
-        <div className="col" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, background: 'var(--nav-bg)', backdropFilter: 'blur(20px) saturate(180%)', WebkitBackdropFilter: 'blur(20px) saturate(180%)', borderTop: '1px solid var(--border-soft)', padding: '12px 20px 18px', gap: 9, zIndex: 3 }}>
+        <div className="col" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, background: 'var(--nav-bg)', backdropFilter: 'blur(20px) saturate(180%)', WebkitBackdropFilter: 'blur(20px) saturate(180%)', borderTop: '1px solid var(--border-soft)', padding: '16px 20px', gap: 9, zIndex: 3 }}>
           {!approved ? (
             <div className="col" style={{ gap: 9 }}>
               <button className="btn-primary" onClick={() => setApproved(true)}>Approve &amp; log</button>

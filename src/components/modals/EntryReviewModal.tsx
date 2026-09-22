@@ -36,7 +36,7 @@ export function EntryReviewModal() {
       <div className="modal-scrim" onClick={() => closeModal('detail')} />
       <div className="sheet">
         <div className="drag-handle" />
-        <div className="col" style={{ padding: '10px 14px 10px 20px', flexShrink: 0, gap: 8 }}>
+        <div className="col" style={{ padding: '10px 24px', flexShrink: 0, gap: 8 }}>
           <div className="row" style={{ alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ fontSize: 20, fontWeight: 700 }}>Entry review</span>
             <button className="close-btn" onClick={() => closeModal('detail')}><IconClose width={17} height={17} /></button>
@@ -50,7 +50,7 @@ export function EntryReviewModal() {
           </div>
         </div>
 
-        <div className="scroll col" style={{ padding: '6px 20px 148px', gap: 16 }}>
+        <div className="scroll col" style={{ padding: '6px 24px 148px', gap: 16 }}>
           <div className="seg">
             <button className={tab === 'original' ? 'active' : ''} onClick={() => setTab('original')}>Original note</button>
             <button className={tab === 'draft' ? 'active' : ''} onClick={() => setTab('draft')}>Brief's draft</button>
@@ -67,10 +67,10 @@ export function EntryReviewModal() {
           {tab === 'draft' && (
             <div className="col" style={{ gap: 8 }}>
               {draftLines.map((line) => (
-                <div key={line.code} className="col" style={{ background: 'var(--bg)', border: '1px solid var(--border-soft)', borderRadius: 8, padding: '13px 14px', gap: 6 }}>
-                  <div className="row" style={{ justifyContent: 'space-between' }}>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11.5, background: 'var(--accent-soft)', color: 'var(--accent-ink)', borderRadius: 20, padding: '3px 9px' }}>{line.code}</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fontWeight: 600 }}>{line.hours}</span>
+                <div key={line.code} className="col" style={{ background: 'var(--track)', borderRadius: 8, padding: '20px 12px', gap: 12 }}>
+                  <div className="row" style={{ alignItems: 'center' }}>
+                    <span className="pill" style={{ background: 'var(--accent-soft)', color: 'var(--accent-ink)' }}>{line.code}</span>
+                    <span style={{ flex: 1, fontFamily: 'var(--font-sans)', fontSize: 13, fontWeight: 600, textAlign: 'right' }}>{line.hours}</span>
                   </div>
                   <div style={{ fontSize: 12.5, lineHeight: 1.5 }}>{line.text}</div>
                 </div>
@@ -80,9 +80,9 @@ export function EntryReviewModal() {
 
           <div className="col" style={{ gap: 9 }}>
             <div style={{ fontSize: 15.5, fontWeight: 700 }}>Compliance check</div>
-            <div className="col card" style={{ background: 'var(--bg)' }}>
-              {complianceChecks.map((c, i) => (
-                <div key={c} className="row" style={{ alignItems: 'center', gap: 10, padding: '11px 14px', borderBottom: i < complianceChecks.length - 1 ? '1px solid var(--border-soft)' : 'none' }}>
+            <div className="col" style={{ background: 'var(--track)', borderRadius: 8 }}>
+              {complianceChecks.map((c) => (
+                <div key={c} className="row" style={{ alignItems: 'center', gap: 10, padding: '12px 14px' }}>
                   <IconCheckThin />
                   <span style={{ fontSize: 12.5, color: 'var(--ink-soft)' }}>{c}</span>
                 </div>
@@ -99,7 +99,7 @@ export function EntryReviewModal() {
         </div>
 
         {!submitted && (
-          <div className="col" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, background: 'var(--nav-bg)', backdropFilter: 'blur(20px) saturate(180%)', WebkitBackdropFilter: 'blur(20px) saturate(180%)', borderTop: '1px solid var(--border-soft)', padding: '12px 20px 18px', gap: 9, zIndex: 3 }}>
+          <div className="col" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, background: 'var(--nav-bg)', backdropFilter: 'blur(20px) saturate(180%)', WebkitBackdropFilter: 'blur(20px) saturate(180%)', borderTop: '1px solid var(--border-soft)', padding: '16px 24px', gap: 9, zIndex: 3 }}>
             <button className="btn-primary" onClick={() => setSubmitted(true)}>Approve &amp; submit</button>
             <button className="btn-tertiary" style={{ padding: 14 }}>Send back</button>
           </div>
