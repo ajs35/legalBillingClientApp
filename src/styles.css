@@ -134,7 +134,7 @@ select { appearance: none; -webkit-appearance: none; background-image: url("data
 .needs-item .body { padding: 13px 14px; gap: 11px; align-items: flex-start; cursor: pointer; }
 .needs-item .detail-collapse { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s cubic-bezier(.4, 0, .2, 1); }
 .needs-item.expanded .detail-collapse { grid-template-rows: 1fr; }
-.needs-item .detail { flex-direction: column; padding: 0 14px 14px; gap: 10px; min-height: 0; overflow: hidden; opacity: 0; transition: opacity .16s ease; }
+.needs-item .detail { display: flex; flex-direction: column; padding: 0 14px 14px; gap: 8px; min-height: 0; overflow: hidden; opacity: 0; transition: opacity .16s ease; }
 .needs-item.expanded .detail { opacity: 1; transition: opacity .22s ease .08s; }
 .chev { transition: transform .2s cubic-bezier(.4, 0, .2, 1); }
 .needs-item.expanded .chev { transform: rotate(90deg); }
