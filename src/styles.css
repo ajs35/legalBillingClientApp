@@ -82,7 +82,7 @@ select { appearance: none; -webkit-appearance: none; background-image: url("data
 .navitem span { font-size: 10.5px; font-weight: 500; }
 .navitem.active span { font-weight: 700; }
 .floating-nav { position: absolute; left: 16px; right: 16px; bottom: 16px; height: 52px; z-index: 5; }
-.floating-nav-bg { position: absolute; inset: 0; background: var(--nav-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid var(--border-soft); border-radius: 8px; overflow: hidden; }
+.floating-nav-bg { position: absolute; inset: 0; background: var(--nav-bg); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10); }
 .floating-nav-content { position: relative; height: 100%; display: flex; align-items: center; padding: 0 16px; padding-bottom: env(safe-area-inset-bottom, 0px); }
 .capture-fab { width: 52px; height: 52px; border-radius: 4px; background: #1D1D1D; border: 4px solid var(--bg); box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: center; margin-top: 0; color: var(--solid-fg); }
 

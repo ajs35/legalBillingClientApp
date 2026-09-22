@@ -47,7 +47,7 @@ export function ProfileView() {
         <div className="col" style={{ gap: 9 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.05em', textTransform: 'uppercase', color: 'var(--ink-faint)' }}>Support</div>
           <div className="col card" style={{ border: 'none' }}>
-            <div className="row settings-row" onClick={() => gotoView('support-elly')}>
+            <div className="row settings-row" onClick={() => openModal('ask-elly')}>
               <div className="settings-row-icon accent"><IconAskElly /></div>
               <div className="col" style={{ flex: 1, gap: 1 }}>
                 <div className="row" style={{ alignItems: 'center', gap: 7 }}>

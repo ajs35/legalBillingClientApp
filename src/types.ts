@@ -6,11 +6,10 @@ export type ViewName =
   | 'matters'
   | 'payments'
   | 'profile'
-  | 'support-elly'
   | 'support-contact'
   | 'support-faq';
 
-export type ModalName = 'capture' | 'detail' | 'edit-profile' | 'password';
+export type ModalName = 'capture' | 'detail' | 'edit-profile' | 'password' | 'ask-elly';
 
 export interface ScheduleItem {
   id: string;

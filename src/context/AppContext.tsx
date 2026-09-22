@@ -79,7 +79,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('light');
   const [view, setView] = useState<ViewName>('home');
   const [openModals, setOpenModals] = useState<Record<ModalName, boolean>>({
-    capture: false, detail: false, 'edit-profile': false, password: false,
+    capture: false, detail: false, 'edit-profile': false, password: false, 'ask-elly': false,
   });
   const [toastMsg, setToastMsg] = useState('');
   const [toastShown, setToastShown] = useState(false);
